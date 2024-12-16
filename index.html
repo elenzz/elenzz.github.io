@@ -1,1014 +1,113 @@
-
-<html lang="id">
-<head>    <meta charset="UTF-8">    <meta name="viewport" content="width=device-width, initial-scale=0.4"> 
-    <meta name="description" content="Halaman Beranda GizCraft , hampir seluruhnya informasi tersedia di sini ,dan lainnya(G1zCrft) img alt="gizcraft.optikl.ink/images" src="https://idleon.wiki/wiki/images/4/49/Frost_Flake_Idle.gif?20230202070732" decoding="async" width="34" height="40"> ">
-	
-<link rel="icon" href="fav.png" type="image/<png">
-<title>Home🌐</title>
-<style>
-    }#loading{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(13,13,13,0.95);display:flex;justify-content:center;align-items:center;flex-direction:column;z-index:9999;transition:opacity 0.5s ease-out}#loading p{font-size:24px;color:#fff;margin-bottom:20px}#progress-container{width:80%;background:#1a1a1a;border-radius:30px;overflow:hidden;box-shadow:0 0 10px rgba(255,255,255,0.2);border:3px solid #00bcd4;position:relative}#progress-bar{height:25px;width:0;background:linear-gradient(90deg,#4caf50,#0dbab1);border-radius:25px;transition:width 0.2s;box-shadow:0 0 15px rgba(0,255,255,0.5);position:relative}#progress-bar:after{content:'';position:absolute;top:0;left:0;height:100%;width:100px;background:rgba(255,255,255,0.5);opacity:0.5;filter:blur(5px);animation:shine 2s infinite linear}#tips{color:#fff;margin-top:20px;font-size:18px;text-align:center}
-</style>
-</head>
-<style>
-    #loadingO{position:fixed;width:100%;height:100%;top:0;left:0;background-color:#282c34;display:flex;flex-direction:column;justify-content:center;align-items:center;z-index:9999;transition:opacity 0.5s ease,visibility 0.5s ease}#loadingO.hidden{opacity:0;visibility:hidden}.spinnerO{width:80px;height:80px;border:6px solid rgba(255,255,255,0.3);border-top:6px solid #3498db;border-radius:50%;animation:spin 1.5s linear infinite;transition:0.2s ease}@keyframes spin{0%{transform:rotate(0deg)}100%{transform:rotate(360deg)}}.loading-textO{margin-top:20px;color:#fff;font-family:'Arial',sans-serif;font-size:1.2em;letter-spacing:0.1em;animation:blink 1.5s infinite}@keyframes blink{0%,100%{opacity:1}50%{opacity:0.5}}.backgroundO{position:absolute;width:100%;height:100%;top:0;left:0;background:linear-gradient(225deg,#70BD23,#000000);clip-path:polygon(0 0,100% 0,100% 100%,0 100%);animation:moveBackground 3s linear infinite}@keyframes moveBackground{0%{background-position:0 0}100%{background-position:100% 100%}}.starsO{position:absolute;width:100%;height:100%;top:0;left:0;background:transparent;box-shadow:0 0 1px #fff,20px 30px 2px #fff,50px 60px 2px #fff,70px 90px 1px #fff,100px 120px 2px #fff,150px 160px 1px #fff,200px 210px 2px #fff,230px 240px 1px #fff,300px 310px 2px #fff,340px 350px 1px #fff;animation:twinkle 2s infinite alternate}@keyframes twinkle{0%{transform:scale(1)}100%{transform:scale(1.5)}}.progress-containerO{position:absolute;bottom:30px;width:80%;height:20px;background:#fff;border-radius:10px;opacity:0.8}.progress-barO{width:0;height:100%;background:#3498db;border-radius:10px}
-</style></head><body> <div id="loadingO">
-        <div class="backgroundO"></div>     <div class="starsO"></div>     <div class="spinnerO"></div>     <div class="loading-textO">Loading...</div>     <div class="progress-containerO">         <div class="progress-barO" id="progress-barO"></div>     </div>   </div>
-    <script>
-        // Fitur: Bilah kemajuan
-        let progressBar = document.getElementById('progress-barO');
-        let width = 0;
-        let interval = setInterval(() => {
-            if (width >= 100) {
-                clearInterval(interval);
-            } else {
-                width++;
-                progressBar.style.width = width + '%';
-            }
-        }, 30);
-
-        window.addEventListener('load', function() {
-            clearInterval(interval); 
-            progressBar.style.width = '100%'; 
-            document.getElementById('loadingO').classList.add('hidden');
-        });
-    </script>
-<body>
-    <div id="loading">        <p>Loading... <span id="percentage">0%</span></p>        <div id="progress-container">          <div id="progress-bar"></div>      </div>    <div id="tips">Tip: Keep your software updated for better performance!</div>  </div>
-     <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            var loadingElement = document.getElementById('loading');
-            var percentageElement = document.getElementById('percentage');
-            var progressBar = document.getElementById('progress-bar');
-            var percentage = 0;
-            var fastLoading = false;
-            function setCookie(name, value, days) {
-                var expires = "";
-                if (days) {
-                    var date = new Date();
-                    date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
-                    expires = "; expires=" + date.toUTCString();
-                }
-                document.cookie = name + "=" + (value || "") + expires + "; path=/";
-            }
-            function getCookie(name) {
-                var nameEQ = name + "=";
-                var ca = document.cookie.split(';');
-                for (var i = 0; i < ca.length; i++) {
-                    var c = ca[i];
-                    while (c.charAt(0) == ' ') c = c.substring(1, c.length);
-                    if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length, c.length);
-                }
-                return null;
-            }
-            function eraseCookie(name) {
-                document.cookie = name + '=; Max-Age=-99999999;';
-            }
-            function estimateNetworkSpeed() {
-                var startTime, endTime;
-                var download = new Image();
-                download.onload = function () {
-                    endTime = (new Date()).getTime();
-                    var duration = (endTime - startTime) / 29000;
-                    var bitsLoaded = 1000 * 5; // 5000 bytes (5 KB)
-                    var speedBps = bitsLoaded / duration;
-                    var speedKbps = speedBps / 1024;
-                    var speedMbps = speedKbps / 1024;
-                    console.log("Speed: " + speedMbps.toFixed(35) + " Mbps");
-                    startLoading(speedMbps);
-                };
-                download.onerror = function (err, msg) {
-                    console.log("Error loading test image.");
-                    startLoading(5); 
-                };
-                startTime = (new Date()).getTime();
-                var cacheBuster = "?nnn=" + startTime;
-                download.src = "https://www.google.com/images/phd/px.gif" + cacheBuster; 
-            }
-            function startLoading(speedMbps) {
-                var loadTime = (1 / speedMbps) * 1; 
-                if (fastLoading) {
-                    loadTime = loadTime / 2;
-                }
-                function updateLoading() {
-                    if (percentage < 100) {
-                        percentage += 1;
-                        percentageElement.textContent = percentage + '%';
-                        progressBar.style.width = percentage + '%';
-                        setTimeout(updateLoading, loadTime);
-                    } else {
-                        loadingElement.style.opacity = '0';
-                        setTimeout(function () {
-                            loadingElement.style.display = 'none';
-                        }, 500);
-                        setCookie('loadingCompleted', 'true', 7);
-                    }
-                }
-                updateLoading();
-            }
-            var loadingCompleted = getCookie('loadingCompleted');
-            if (loadingCompleted) {
-                fastLoading = true;
-            }
-            estimateNetworkSpeed();
-        });
-    </script>
-</body>
-</html>
+<!DOCTYPE html>
 <html lang="en">
-<head>  <meta charset="UTF-8">    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<style>
-    body{font-family:Arial,sans-serif;margin:0;padding:0;position:relative;height:100vh}.speed-test{position:fixed;top:10px;right:10px;background:rgba(0,0,0,0.7);color:#fff;padding:10px;border-radius:5px;z-index:1000}
-</style>
-</head>
-<body>
-    <div class="speed-test" id="speedTest">     Checking speed...   </div>
-    <script>
-        document.addEventListener('contextmenu', function(event) {
-            event.preventDefault();
-            alert('т');
-        });
-        async function measureSpeed() {
-            const startTime = new Date().getTime();
-            const response = await fetch('protection.com', { cache: 'cache' });
-            const endTime = new Date().getTime();
-            const sizeInBytes = parseInt(response.headers.get('content-length'), 10);
-            const durationInSeconds = (endTime - startTime) / 1000;
-            const speedInBps = sizeInBytes / durationInSeconds;
-            const speedInKbps = speedInBps / 1024;
-            return speedInKbps.toFixed(2);
-        }
-        async function updateSpeedTest() {
-            const speedElement = document.getElementById('speedTest');
-            try {
-                const speed = await measureSpeed();
-                speedElement.textContent = `Speed: ${speed} Kbps`;
-            } catch (error) {
-                speedElement.textContent = 'тП';
-            }
-            setTimeout(updateSpeedTest, 0);
-        }
-        updateSpeedTest();
-    </script>
-</body>
-</html>
-<html lang="en">
-<head>    <meta charset="UTF-8">   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<style>
-	body{font-family:Arial,sans-serif;margin:0;padding:0;background-color:#f4f4f4}header{background-color:#333;color:#fff;padding:20px;text-align:center}nav{background-color:#444;padding:5px 0;text-align:center}nav ul{list-style-type:none;padding:0;margin:0}nav ul li{display:inline;margin:0 1px}nav ul li a{color:#fff;text-decoration:none;padding:5px 10px;border-radius:2px;transition:background-color .3s}nav ul li a:hover{background-color:#555}section{padding:10px;margin:10px;background-color:#fff;border-radius:3px} </style>
-</head>
-<body>
-    <header>
-        <h1>Home</h1>
-    </header>
-    		<nav>     <ul>        <li><a href="index.html">Home</a></li>       <li><a href="help.html">Help</a></li>    <li><a href="download.html">download</a></li>   <li><a href="report.html">Report</a></li>                  <li><a href="upload.html">upload</a></li>     </ul>  </nav>
-		<!-- Google Translate -->
-	<div id="google_translate_element"></div> <script type="text/javascript">    function googleTranslateElementInit() {         new google.translate.TranslateElement(              {pageLanguage: 'id'},             'google_translate_element'          );        }    </script>   <script 
-	type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit">	</script>
-	<!-- Google Translate End -->
-    <section>     <h2>Welcome to our Home Page</h2>       <p>Looking for a download link? you can find it on the    <li><a href="download.html">download</a></li></p>        <p>Today's date is: <span id="currentDate"></span></p>    </section>
-    <style>
-.s1{font-family:'Arial',sans-serif;background-color:#f4f4f4;margin:0;padding:20px}h1{text-align:center;color:#00C3FF;margin-bottom:20px;background-color:#000}.n{background-color:#fff;border:1px solid #ddd;border-radius:10px;margin-bottom:30px;padding:0;box-shadow:0 4px 8px rgba(0,0,0,.1);overflow:hidden}.n table{width:100%;border-collapse:collapse}.n th{background-color:#007BFF;color:#fff;padding:15px;font-size:1.5em;text-align:left}.n pre{padding:15px;font-size:1em;color:#333;white-space:pre-wrap;margin:0}a{color:#007BFF;text-decoration:none}a:hover{text-decoration:underline}    </style>
-</head>
-<style>
-    body{font-family:'Arial',sans-serif;background-color:#f4f4f4;margin:0;padding:20px}h1{text-align:center;color:#333;margin-bottom:20px}.news-item{background-color:#fff;border:1px solid #ddd;border-radius:10px;margin-bottom:30px;padding:0;box-shadow:0 4px 8px rgba(0,0,0,0.1);overflow:hidden}.news-item table{width:100%;border-collapse:collapse}.news-item th{background-color:#007BFF;color:#FFFFFF;padding:15px;font-size:1.5em;text-align:left}.news-item pre{padding:15px;font-size:1em;color:#333;white-space:pre-wrap;margin:0}.news-item .timestamp{padding:15px;font-size:.9em;color:#666;text-align:right}a{color:#007BFF;text-decoration:none}a:hover{text-decoration:underline}  </style>
-</head>
-<body>    <h1>PATCH</h1>  <div id="newsContainer">   </div>
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            const newsContainer = document.getElementById('newsContainer');
-            fetch('getNews.php')
-                .then(response => response.json())
-                .then(newsData => {
-                    newsData.forEach(news => {
-                        const newsItem = document.createElement('div');
-                        newsItem.className = 'news-item';
-                        const newsTable = document.createElement('table');
-                        const tbody = document.createElement('tbody');
-                        const rowTitle = document.createElement('tr');
-                        const cellTitle = document.createElement('th');
-                        cellTitle.colSpan = 2;
-                        cellTitle.textContent = news.name;
-                        rowTitle.appendChild(cellTitle);
-                        const rowContent = document.createElement('tr');
-                        const cellContent = document.createElement('td');
-                        cellContent.colSpan = 2;
-                        const urlPattern = /https?:\/\/[^\s]+/g;
-                        let contentWithLinks = news.content.replace(urlPattern, function(url) {
-                            return '<a href="' + url + '" target="_blank">' + url + '</a>';
-                        });
-                        const preElement = document.createElement('pre');
-                        preElement.innerHTML = contentWithLinks;
-                        cellContent.appendChild(preElement);
-                        rowContent.appendChild(cellContent);
-                        const rowTimestamp = document.createElement('tr');
-                        const cellTimestamp = document.createElement('td');
-                        cellTimestamp.colSpan = 2;
-                        cellTimestamp.className = 'timestamp';
-                        cellTimestamp.textContent = 'Terakhir diubah: ' + news.lastModified;
-                        rowTimestamp.appendChild(cellTimestamp);
-                        tbody.appendChild(rowTitle);
-                        tbody.appendChild(rowContent);
-                        tbody.appendChild(rowTimestamp);
-                        newsTable.appendChild(tbody);
-                        newsItem.appendChild(newsTable);
-                        newsContainer.appendChild(newsItem);
-                    });
-                })
-                .catch(error => console.error('Error loading news:', error));
-        });
-    </script>
-</body>   <nav>    	<ul> 	<li><a href="register.html">register</a></li>    <li><a href="login.html">login</a></li>    </ul>  </nav>
-<style>
-    #account-info{position:fixed;top:10px;left:10px;font-size:16px}#logout-btn{position:fixed;bottom:10px;left:10px;font-size:14px;cursor:pointer}
-</style>
-</head>
-<body> <div id="account-info"><?php echo isset($_SESSION['username']) ? 'Logged in as: ' . $_SESSION['username'] : ''; ?></div>   <a id="logout-btn" href="logout.php">Logout</a>
-</body>
-    <script>
-        var currentDateElement = document.getElementById('currentDate');
-        var currentDate = new Date();
-        currentDateElement.textContent = currentDate.toDateString();
-    </script>
-</head>
-<body>    <h1>Comments</h1>    <form action="comment.php" method="post">     <input type="text" name="username" placeholder="Nama"><br>     <textarea name="comment" rows="4" cols="50" placeholder="Komentar"></textarea><br>     <input type="submit" value="Submit">    </form>  <hr>   <div id="commentsContainer"></div>   <script src="kom.js"></script>
-</body>
-</head>
-<body>
-    <p>Your content here...</p>
-    <script>
-        var isIPSafe = <?php echo isset($_SESSION['safe_ip']) ? 'true' : 'false'; ?>;
-        if (!isIPSafe) {
-            window.location.href = "verification.php";
-        }
-    </script>
-    
-<html lang="id"><head>    <meta charset="UTF-8">    <meta name="viewport" content="width=device-width, initial-scale=1.0">  <style>   .bod-kyustom{font-family:Arial,sans-serif;text-align:center;margin-top:50px}.odyoplayr-custm{display:none}.vrlay-cstom{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.8);color:#fff;text-align:center;padding-top:20%;font-size:18px}.ovrly-botun-cstom{background:#4CAF50;color:#fff;padding:10px 20px;border:none;cursor:pointer;margin:10px}.ovrly-botun-cstom.cancel-custm{background:#f44336}.difficult-to-read{letter-spacing:3px;text-transform:uppercase;font-weight:bold;opacity:.8;filter:blur(.5px);transform:rotate(-5deg)} </style>
-</head><body class="bod-kyustom">   <audio class="odyoplayr-custm" id="audioPlayer" muted>       <source src="home.mp3" type="audio/mpeg">      Your browser doesn't support the audio element.  </audio><div class="vrlay-cstom" id="overlay">   <p class="difficult-to-read">Iznkan cach untk pnglmn trbk:</p>   <button class="ovrly-botun-cstom" id="cacheAudio">Cach Audio</button>   <button class="ovrly-botun-cstom" id="cachePage">Cach source</button> <button class="ovrly-botun-cstom cancel-custm" id="cancel">cancel</button></div>
-<script>   if('serviceWorker' in navigator){navigator.serviceWorker.register('service-worker.js').then(function(registration){console.log('Service Worker registered with scope:',registration.scope)}).catch(function(error){console.log('Service Worker registration failed:',error)})}window.addEventListener('load',function(){var e=document.getElementById('audioPlayer'),t=document.getElementById('overlay'),n=document.getElementById('cacheAudio'),o=document.getElementById('cachePage'),r=document.getElementById('cancel');var i=getCookie('set78KKWk');if(!i){t.style.display='block',document.cookie='set7KWk=false; expires=Fri, 31 Dec 9999 23:59:59 GMT'}n.addEventListener('click',function(){t.style.display='none',caches.open('my-cache').then(function(t){return t.add('home.mp3').then(function(){e.muted=!1,e.play()})})}),o.addEventListener('click',function(){t.style.display='none',caches.open('my-cache').then(function(t){return t.addAll(['/','/home.mp3'])})}),r.addEventListener('click',function(){t.style.display='none'})});function getCookie(e){for(var t=document.cookie.split(';'),n=0;n<t.length;n++){var o=t[n].trim();if(0===o.indexOf(e))return o.substring(e.length+1)}return null} </script></body>
-</html>
-</body>
-<html>
-<style>
-    boddy{font-family:Arial,sans-serif}#overlayI{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background-color:rgba(0,0,0,0.8);color:Blue;text-align:center;justify-content:center;align-items:center;z-index:1000;flex-direction:column}#overlay button{padding:10px 20px;margin-top:20px;font-size:16px;background-color:#00FDFF;}
-</style>
-</head><boddy><div id="overlayI">
-    <div>
-        <h4>Hapus Beberapa Data Web Dari Chrome Anda</h4>
-        <h4>Anda Mengklik halaman web 3 kali dengan cepat dan manggil saya kesini🗿</h4>
-        
-        <button onclick="clearCookies()">Clear Cookies</button>
-        <button onclick="clearLocalStorage()">Clear Local Storage</button>
-        <button onclick="clearSessionStorage()">Clear Session Storage</button>
-        <button onclick="clearCache()">Clear Cache</button>
-        <button onclick="hideOverlay()">Cancel</button>
-    </div></div>
-<script>
-    let tapCount = 0;
-    let tapTimeout;
-    let holdTimeout;
-
-    document.body.addEventListener('click', function() {
-        tapCount++;
-        clearTimeout(tapTimeout);
-
-        if (tapCount === 4) {
-            holdTimeout = setTimeout(() => {
-                showOverlay();
-                tapCount = 0;
-            }, 100); // 2 seconds hold
-        } else {
-            tapTimeout = setTimeout(() => {
-                tapCount = 0;
-                clearTimeout(holdTimeout);
-            }, 400); // Adjust time interval as needed for "quick taps"
-        }
-    });
-
-    function showOverlay() {
-        document.getElementById('overlayI').style.display = 'flex';
-    }
-
-    function hideOverlay() {
-        document.getElementById('overlayI').style.display = 'none';
-    }
-
-    function clearCookies() {
-        document.cookie.split(";").forEach((cookie) => {
-            const eqPos = cookie.indexOf("=");
-            const name = eqPos > -1 ? cookie.substr(0, eqPos) : cookie;
-            document.cookie = name + "=;expires=Thu, 01 Jan 1970 00:00:00 GMT";
-        });
-        alert('Cookies cleared.');
-    }
-
-    function clearLocalStorage() {
-        localStorage.clear();
-        alert('Local storage cleared.');
-    }
-
-    function clearSessionStorage() {
-        sessionStorage.clear();
-        alert('Session storage cleared.');
-    }
-
-    function clearCache() {
-        if ('caches' in window) {
-            caches.keys().then(function(names) {
-                for (let name of names) caches.delete(name);
-            });
-            alert('Cache cleared.');
-        } else {
-            alert('Cache API not supported in this browser.');
-        }
-    }
-</script></boddy>
-
-<style>
-    body {
-        touch-action: manipulation; /* Mencegah double tap zoom di beberapa browser mobile */
-    }
-</style>
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
-        var lastTouchEnd = 0;
-        document.addEventListener('touchend', function(event) {
-            var now = (new Date()).getTime();
-            if (now - lastTouchEnd <= 300) {
-                event.preventDefault();
-            }
-            lastTouchEnd = now;
-        }, false);
-
-        // Untuk desktop
-        var lastClick = 0;
-        document.addEventListener('click', function(event) {
-            var now = (new Date()).getTime();
-            if (now - lastClick <= 300) {
-                event.preventDefault();
-            }
-            lastClick = now;
-        }, false);
-    }, false);
-</script>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=0.4">
+    <title>Menu</title>
     <style>
         body {
-            font-family: Arial, sans-serif !important; /* Gaya font default */
-            background-size: cover;
-            background-position: center;
-        }
-        
-        #setting-container {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            width: 50px;
-            height: 50px;
-            background-color: #333;
-            border-radius: 50%;
-            text-align: center;
-            line-height: 50px;
-            color: #fff;
-            cursor: pointer;
-        }
-        
-        #setting-bar {
-            display: none;
-            position: fixed;
-            top: 0;
-            right: 0;
-            width: 300px;
-            height: 100%;
-            background-color: #f4f4f4;
-            padding: 20px;
-            box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
-            z-index: 9999;
-            overflow-y: auto;
-        }
-        
-        #close-setting {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            cursor: pointer;
-        }
-
-        /* Penambahan CSS untuk mengatur gaya font pada elemen teks */
-        #content h1, #content p {
-            font-family: inherit !important;
-        }
-    </style>
-</head>
-<body>
-    <div id="setting-container">
-        <span onclick="toggleSetting()">SET⚙️</span>
-    </div>
-
-    <div id="setting-bar">
-        <div id="close-setting" onclick="toggleSetting()">X</div>
-        <h2>Setting</h2>
-        <label for="background">Background (Gambar):</label><br>
-        <input type="file" id="background-image" name="background-image" accept="image/*"><br><br>
-        
-
-        
-        <button onclick="resetBackground()">Reset Background</button><br><br>
-        
-        <label for="font">Font:</label><br>
-        <select id="font" name="font">
-            <option value="Arial">Arial</option>
-            <option value="Verdana">Verdana</option>
-            <option value="Helvetica">Helvetica</option>
-            <option value="Times New Roman">Times New Roman</option>
-            <option value="Courier New">Courier New</option>
-        </select>
-        <button onclick="applyFont()">Terapkan</button><br><br>
-        
-        <label for="color">Font Color:</label><br>
-        <input type="color" id="color" name="color" onchange="changeColor()"><br><br>
-                  
-
-    <style>
-        body {
+            margin: 0;
             font-family: Arial, sans-serif;
-        }
-        .content {
-            margin: 20px;
-            font-size: var(--text-size, 16px); /* Menggunakan custom property untuk ukuran teks */
-            font-family: var(--font-family, Arial, sans-serif); /* Menggunakan custom property untuk gaya font */
-            color: var(--text-color, black); /* Menggunakan custom property untuk warna teks */
-        }
-        .settings {
-            margin: 20px 0;
-        }
-        button {
-            font-size: inherit; /* Tombol mengambil ukuran teks dari parent (html atau body) */
-            padding: 10px 20px;
-            margin: 10px;
-        }
-    </style>
-</head>
-<body>
-    <div class="content">
-        <h1>Contoh Teks</h1>
-        <p>Ini adalah contoh teks yang ukurannya, gaya fontnya, dan warnanya bisa diubah melalui pengaturan di bawah ini.</p>
-    </div>
-    <div class="settings">
-        <label for="textSize">Ukuran Teks: </label>
-        <input type="number" id="textSize" name="textSize" min="10" max="100" value="16" oninput="changeTextSize(this.value)">
-        <span id="textSizeValue">16px</span>
-        <br>
-        <label for="fontFamily">Gaya Font: </label>
-        <select id="fontFamily" name="fontFamily" onchange="changeFontFamily(this.value)">
-            <option value="Arial, sans-serif">Arial, sans-serif</option>
-            <option value="Verdana, Geneva">Verdana, Geneva</option>
-            <option value="Georgia, serif">Georgia, serif</option>
-            <option value="'Times New Roman', Times, serif">Times New Roman, Times, serif</option>
-            <option value="'Courier New', Courier, monospace">Courier New, Courier, monospace</option>
-            <option value="Tahoma, Geneva">Tahoma, Geneva</option>
-            <option value="'Trebuchet MS', Helvetica">Trebuchet MS, Helvetica</option>
-            <option value="Impact, Charcoal">Impact, Charcoal</option>
-            <option value="'Comic Sans MS', cursive">Comic Sans MS, cursive</option>
-            <option value="Arial Black, Gadget">Arial Black, Gadget</option>
-        </select>
-        <br>
-        <label for="textColor">Warna Teks: </label>
-        <input type="color" id="textColor" name="textColor" value="#000000" onchange="changeTextColor(this.value)">
-        <span id="textColorValue">#000000</span>
-    </div>
-
-    <script>
-        function changeTextSize(size) {
-            size = Math.max(5, Math.min(100, size)); // Pastikan ukuran teks dalam rentang yang diizinkan
-            document.documentElement.style.setProperty('--text-size', size + 'px');
-            document.getElementById('textSizeValue').innerText = size + 'px';
-            document.querySelectorAll('asc').forEach(element => {
-                element.style.fontSize = size + 'px';
-            });
-            // Simpan ukuran teks ke dalam cookie
-            document.cookie = `textSize=${size}; expires=Fri, 31 Dec 9999 23:59:59 GMT`;
+            color: white;
         }
 
-        function changeFontFamily(font) {
-            document.documentElement.style.setProperty('--font-family', font);
-            // Simpan gaya font ke dalam cookie
-            document.cookie = `fontFamily=${encodeURIComponent(font)}; expires=Fri, 31 Dec 9999 23:59:59 GMT`;
+        .iframe-container {
+            width: 100%;
+            height: 90vh; /* Sisakan ruang untuk tombol kontrol */
+            background-color: #445867;
         }
 
-        function changeTextColor(color) {
-            document.documentElement.style.setProperty('--text-color', color);
-            document.getElementById('textColorValue').innerText = color;
-            // Simpan warna teks ke dalam cookie
-            document.cookie = `textColor=${encodeURIComponent(color)}; expires=Fri, 31 Dec 9999 23:59:59 GMT`;
-        }
-
-        // Fungsi untuk memuat ukuran teks, gaya font, dan warna teks dari cookie saat halaman dimuat
-        function loadSettings() {
-            const cookie = document.cookie;
-            const cookieArray = cookie.split('; ');
-            const cookieObj = {};
-            for (let i = 0; i < cookieArray.length; i++) {
-                const cookieParts = cookieArray[i].split('=');
-                cookieObj[cookieParts[0]] = cookieParts[1];
-            }
-            if (cookieObj.textSize) {
-                changeTextSize(cookieObj.textSize);
-                document.getElementById('textSize').value = cookieObj.textSize;
-            }
-            if (cookieObj.fontFamily) {
-                changeFontFamily(decodeURIComponent(cookieObj.fontFamily));
-                document.getElementById('fontFamily').value = decodeURIComponent(cookieObj.fontFamily);
-            }
-            if (cookieObj.textColor) {
-                changeTextColor(decodeURIComponent(cookieObj.textColor));
-                document.getElementById('textColor').value = decodeURIComponent(cookieObj.textColor);
-                document.getElementById('textColorValue').innerText = decodeURIComponent(cookieObj.textColor);
-            }
-        }
-
-        // Memuat ukuran teks, gaya font, dan warna teks dari cookie saat halaman dimuat
-        document.addEventListener('DOMContentLoaded', () => {
-            loadSettings();
-        });
-    </script>
-
-                  
-    <style>
-        .button {
-            padding: 10px 20px;
+        iframe {
+            width: 100%;
+            height: 100%;
             border: none;
-            cursor: pointer;
-            font-size: 16px;
-            margin: 5px;
         }
 
-        /* Hacker Style */
-        .hacker {
-            background-color: black;
-            color: #00ff00;
-            font-family: 'Courier New', Courier, monospace;
-            border: 1px solid #00ff00;
-        }
-
-        .hacker:hover {
-            background-color: #00ff00;
-            color: black;
-        }
-
-        /* Classy Style */
-        .classy {
-            background-color: #f0f0f0;
-            color: #333;
-            border: 1px solid #333;
-            font-family: 'Georgia', serif;
-        }
-
-        .classy:hover {
-            background-color: #333;
-            color: #f0f0f0;
-        }
-
-        /* Low Style */
-        .low {
-            background-color: #aaa;
-            color: #000;
-            border: 1px solid #666;
-        }
-
-        .low:hover {
-            background-color: #888;
-            border-color: #444;
-        }
-
-        /* Glow Style */
-        .glow {
-            background-color: #111;
-            color: #fff;
-            border: none;
-            box-shadow: 0 0 10px #00f, 0 0 20px #00f, 0 0 30px #00f;
-        }
-
-        .glow:hover {
-            box-shadow: 0 0 20px #00f, 0 0 30px #00f, 0 0 40px #00 f;
-        }
-
-        /* Star Style */
-        .star {
-            background-color: #fff;
-            color: #000;
-            border: 1px solid #000;
-            position: relative;
-            font-family: 'Comic Sans MS', cursive, sans-serif;
-        }
-
-        .star::after {
-            content: 'â˜…';
-            position: absolute;
-            top: -10px;
-            right: -10px;
-            color: gold;
-            font-size: 20px;
-        }
-
-        .star:hover::after {
-            color: red;
-        }
-
-        /* Nightmare Style */
-        .nightmare {
-            background-color: #330000;
-            color: #ff0000;
-            border: 1px solid #ff0000;
-            font-family: 'Chiller', cursive;
-        }
-
-        .nightmare:hover {
-            background-color: #ff0000;
-            color: #330000;
-        }
-
-        /* Reset Button Style */
-        .reset {
-            background-color: #444;
-            color: #fff;
-            border: 1px solid #fff;
-        }
-
-        .reset:hover {
-            background-color: #555;
-        }
-    </style>
-    <script>
-        function setCookie(name, value, days) {
-            const date = new Date();
-            date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
-            const expires = "expires=" + date.toUTCString();
-            document.cookie = name + "=" + value + ";" + expires + ";path=/";
-        }
-
-        function getCookie(name) {
-            const decodedCookie = decodeURIComponent(document.cookie);
-            const ca = decodedCookie.split(';');
-            const nameEQ = name + "=";
-            for (let i = 0; i < ca.length; i++) {
-                let c = ca[i];
-                while (c.charAt(0) == ' ') {
-                    c = c.substring(1);
-                }
-                if (c.indexOf(nameEQ) == 0) {
-                    return c.substring(nameEQ.length, c.length);
-                }
-            }
-            return "";
-        }
-
-        function loadButtonStyle() {
-            const style = getCookie("buttonStyle");
-            if (style) {
-                const buttons = document.querySelectorAll(".button");
-                buttons.forEach(button => {
-                    button.className = "button " + style;
-                });
-            }
-        }
-
-        function setButtonStyle(style) {
-            setCookie("buttonStyle", style, 7);
-            loadButtonStyle();
-        }
-
-        function resetButtonStyle() {
-            setCookie("buttonStyle", "", -1);
-            location.reload();
-        }
-
-        document.addEventListener("DOMContentLoaded", () => {
-            loadButtonStyle();
-            const buttons = document.querySelectorAll(".button:not(.reset)");
-            buttons.forEach(button => {
-                button.addEventListener("click", () => {
-                    setButtonStyle(button.classList[1]);
-                });
-            });
-            const resetButton = document.querySelector(".reset");
-            if (resetButton) {
-                resetButton.addEventListener("click", resetButtonStyle);
-            }
-        });
-    </script>
-</head>
-<body>
-    <button class="button hacker">Hacker Style</button>
-    <button class="button classy">Classy Style</button>
-    <button class="button low">Low Style</button>
-    <button class="button glow">Glow Style</button>
-    <button class="button star">Star Style</button>
-    <button class="button nightmare">Nightmare Style</button>
-    <button class="button reset">Reset Style</button>
-</body>
-</html>
-
-
-    <script>
-        function setCookie(name, value, days) {
-            const date = new Date();
-            date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
-            const expires = "expires=" + date.toUTCString();
-            document.cookie = name + "=" + value + ";" + expires + ";path=/";
-        }
-
-        function getCookie(name) {
-            const decodedCookie = decodeURIComponent(document.cookie);
-            const ca = decodedCookie.split(';');
-            const nameEQ = name + "=";
-            for (let i = 0; i < ca.length; i++) {
-                let c = ca[i];
-                while (c.charAt(0) == ' ') {
-                    c = c.substring(1);
-                }
-                if (c.indexOf(nameEQ) == 0) {
-                    return c.substring(nameEQ.length, c.length);
-                }
-            }
-            return "";
-        }
-
-        function deleteCookie(name) {
-            setCookie(name, "", -1);
-        }
-
-        function displayCookie() {
-            const cookieValue = getCookie("buttonStyle");
-            const cookieDisplay = document.getElementById("cookieDisplay");
-            if (cookieValue) {
-                cookieDisplay.innerText = " " + cookieValue;
-            } else {
-                cookieDisplay.innerText = "";
-            }
-        }
-
-        function resetButtonStyle() {
-            deleteCookie("buttonStyle");
-            location.reload();
-        }
-
-        document.addEventListener("DOMContentLoaded", () => {
-            displayCookie();
-            const resetButton = document.getElementById("resetButton");
-            resetButton.addEventListener("click", resetButtonStyle);
-        });
-    </script>
-</head>
-<body>
-    <div id="cookieDisplay" class="cookie-display"></div>
-    <button id="resetButton" class="button">KEMBALIKAN SEMULA GAYA BUTTON♻️</button>
-</body>
-
-    <style>
-       
-        .button-container {
+        .controls {
             display: flex;
-            flex-direction: column;
-            align-items: center;
+            justify-content: space-between;
+            padding: 10px;
+            background-color: #573599;
+            border-top: 1px solid #ccc;
         }
-        .btndod {
-            display: block;
-            margin-bottom: 10px;
-            padding: 15px 30px;
+
+        button {
+            padding: 10px 15px;
             font-size: 16px;
-            font-weight: bold;
-            color: #fff;
-            background: linear-gradient(135deg, #ff4e50, #f9d423);
-            border: none;
-            border-radius: 30px;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
             cursor: pointer;
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
+            border: 1px solid #ccc;
+            background-color: #484848;
+            border-radius: 5px;
+            color: white;
         }
-        .btndod::before {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 300%;
-            height: 300%;
-            background: rgba(255, 255, 255, 0.15);
-            transition: all 0.3s ease;
-            transform: translate(-50%, -50%) rotate(45deg);
-            opacity: 0;
-        }
-        .btndod:hover::before {
-            opacity: 1;
-            width: 400%;
-            height: 400%;
-        }
-        .btndod:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 25px rgba(0, 0, 0, 0.3);
-        }
-        .btndod:focus {
-            outline: none;
-        }
-        .preview {
-            width: 100px;
-            height: 100px;
-            background-size: cover;
-            background-position: center;
-            border: 1px solid #000;
-            display: none;
-            position: absolute;
-            left: 230px;
-            top: 20px;
+
+        button:hover {
+            background-color: #e0e0e0;
         }
     </style>
 </head>
 <body>
-
-<div class="button-container">
-    <button class="btndod" onmouseover="showPreview('bg1.png')" onmouseout="hidePreview()" onclick="setBackground('bg1.png')">Background 1</button>
-    <button class="btndod" onmouseover="showPreview('bg2.png')" onmouseout="hidePreview()" onclick="setBackground('bg2.png')">Background 2</button>
-    <button class="btndod" onmouseover="showPreview('bg3.png')" onmouseout="hidePreview()" onclick="setBackground('bg3.png')">Background 3</button>
-    <button class="btndod" onmouseover="showPreview('bg4.png')" onmouseout="hidePreview()" onclick="setBackground('bg4.png')">Background 4</button>
-</div>
-
-<div id="preview" class="preview"></div>
-
-<script>
-    function setBackground(image) {
-        document.body.style.backgroundImage = `url('bg/${image}')`;
-        document.cookie = `background=${image}; path=/; max-age=${60 * 60 * 24 * 30}`;
-    }
-
-    function getCookie(name) {
-        const value = `; ${document.cookie}`;
-        const parts = value.split(`; ${name}=`);
-        if (parts.length === 2) return parts.pop().split(';').shift();
-    }
-
-    function showPreview(image) {
-        const preview = document.getElementById('preview');
-        preview.style.backgroundImage = `url('bg/${image}')`;
-        preview.style.display = 'block';
-    }
-
-    function hidePreview() {
-        const preview = document.getElementById('preview');
-        preview.style.display = 'none';
-    }
-
-    document.addEventListener("DOMContentLoaded", function() {
-        const background = getCookie('background');
-        if (background) {
-            document.body.style.backgroundImage = `url('bg/${background}')`;
-        }
-    });
-</script>
-</body>
-                  
+    <div class="iframe-container">
+        <!-- Iframe tanpa sandbox untuk mendukung penyimpanan data -->
+        <iframe id="browserIframe"></iframe>
     </div>
+
+    <div class="controls">
+        <button id="homeButton">Home</button>
+        <button id="backButton">Back</button>
+    </div>
+
     <script>
-        // Memuat preferensi pengguna dari local storage saat halaman dimuat
-        window.onload = function() {
-            var preferences = JSON.parse(localStorage.getItem('preferences')) || {};
+        const initialUrl = "http://elenz.cdn.infy.uk/index.html"; // URL awal
+        const iframe = document.getElementById("browserIframe");
+        const homeButton = document.getElementById("homeButton");
+        const backButton = document.getElementById("backButton");
 
-            if (preferences.backgroundImage) {
-                document.body.style.backgroundImage = preferences.backgroundImage;
-            }
-            if (preferences.backgroundColor) {
-                document.body.style.backgroundColor = preferences.backgroundColor;
-                document.getElementById("backgrund-color").value = preferences.backgroundColor;
-            }
-            if (preferences.fontFamily) {
-                document.getElementById("content").style.fontFamily = preferences.fontFamily; // Update font family for content
-                document.getElementById("font").value = preferences.fontFamily; // Update select option
-            }
-            if (preferences.fontColor) {
-                document.body.style.color = preferences.fontColor;
-                document.getElementById("color").value = preferences.fontColor;
-            }
-        };
+        // Stack untuk menyimpan riwayat navigasi iframe
+        const iframeHistory = [];
 
-        function toggleSetting() {
-            var settingBar = document.getElementById("setting-bar");
-            if (settingBar.style.display === "none") {
-                settingBar.style.display = "block";
+        // Ambil halaman terakhir dari localStorage jika ada
+        const lastVisited = localStorage.getItem("lastVisited");
+        iframe.src = lastVisited || initialUrl;
+
+        // Simpan halaman terakhir ke localStorage setiap kali iframe memuat halaman
+        iframe.addEventListener("load", () => {
+            const currentUrl = iframe.contentWindow.location.href;
+
+            // Tambahkan URL ke stack jika belum ada atau berbeda dari sebelumnya
+            if (iframeHistory.length === 0 || iframeHistory[iframeHistory.length - 1] !== currentUrl) {
+                iframeHistory.push(currentUrl);
+            }
+
+            // Simpan ke localStorage
+            localStorage.setItem("lastVisited", currentUrl);
+        });
+
+        // Fungsi untuk tombol Home
+        homeButton.addEventListener("click", () => {
+            iframe.src = initialUrl;
+            iframeHistory.length = 0; // Reset history
+        });
+
+        // Fungsi untuk tombol Back
+        backButton.addEventListener("click", () => {
+            if (iframeHistory.length > 1) {
+                iframeHistory.pop(); // Hapus halaman saat ini
+                const previousUrl = iframeHistory[iframeHistory.length - 1];
+                iframe.src = previousUrl; // Kembali ke halaman sebelumnya
             } else {
-                settingBar.style.display = "none";
+                alert("Tidak ada halaman sebelumnya!");
             }
-        }
+        });
 
-        function applyFont() {
-            var font = document.getElementById("font").value;
-            document.getElementById("content").style.fontFamily = font; // Update font family for content
-            savePreferences(); // Save preferences to local storage
-        }
-
-        function changeColor() {
-            var color = document.getElementById("color").value;
-            document.body.style.color = color;
-            savePreferences(); // Save preferences to local storage
-        }
-
-        function changeBackgroundColor() {
-            var color = document.getElementById("bacground-color").value;
-            document.body.style.backgroundImage = "none"; // Remove background image if any
-            document.body.style.backgroundColor = color;
-            savePreferences(); // Save preferences to local storage
-        }
-
-        document.getElementById("background-image").addEventListener("change", function(event) {
-            var file = event.target.files[0];
-            var reader = new
-</body>
-<script>
-    function getCookie(name) {
-        const value = `; ${document.cookie}`;
-        const parts = value.split(`; ${name}=`);
-        if (parts.length === 2) return parts.pop().split(';').shift();
-    }
-
-    document.addEventListener("DOMContentLoaded", function() {
-        const background = getCookie('background');
-        if (background) {
-            document.body.style.backgroundImage = `url('bg/${background}')`;
-            document.body.style.backgroundSize = 'cover';
-            document.body.style.backgroundPosition = 'center';
-        }
-    });
-</script>
-
-    <script>
-        function generateRandomString(length, chars) {
-            var result = '';
-            for (var i = 0; i < length; i++) {
-                result += chars.charAt(Math.floor(Math.random() * chars.length));
+        // Tangani tombol Back perangkat
+        window.addEventListener("popstate", (event) => {
+            if (iframeHistory.length > 1) {
+                backButton.click(); // Panggil fungsi back iframe
+            } else {
+                window.history.back(); // Keluar dari halaman jika iframe tidak punya history
             }
-            return result;
-        }
-
-        function getCookie(name) {
-            var nameEQ = name + "=";
-            var ca = document.cookie.split(';');
-            for(var i = 0; i < ca.length; i++) {
-                var c = ca[i];
-                while (c.charAt(0) === ' ') c = c.substring(1, c.length);
-                if (c.indexOf(nameEQ) === 0) return c.substring(nameEQ.length, c.length);
-            }
-            return null;
-        }
-
-        function setCookie(name, value, days) {
-            var expires = "";
-            if (days) {
-                var date = new Date();
-                date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
-                expires = "; expires=" + date.toUTCString();
-            }
-            document.cookie = name + "=" + value + expires + "; path=/";
-        }
-
-        function getIPAddress(callback) {
-            var xhr = new XMLHttpRequest();
-            xhr.open('GET', 'https://api64.ipify.org?format=json', true);
-            xhr.onreadystatechange = function() {
-                if (xhr.readyState === 4 && xhr.status === 200) {
-                    var ip = JSON.parse(xhr.responseText).ip;
-                    callback(ip);
-                }
-            };
-            xhr.send();
-        }
-
-        function encrypt(value) {
-            return btoa(value); // Base64 encoding
-        }
-
-        window.onload = function() {
-            var cookieName = "gaD_";
-            var cookieValue = getCookie(cookieName);
-
-            if (!cookieValue) {
-                var chars1 = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
-                var chars2 = '!@#$%^&*()_+-=[]{}|;:,.<>?/~`0123456789';
-
-                var randomString1 = generateRandomString(12, chars1);
-                var randomString2 = generateRandomString(7, chars2);
-                cookieValue = randomString1 + "GD" + randomString2;
-
-                setCookie(cookieName, encrypt(cookieValue), 7);
-            }
-
-            getIPAddress(function(ip) {
-                var newCookieValue = cookieValue + "-" + ip;
-                setCookie("PwHsisKs81Kso9#_gaD_", newCookieValue, 7);
-            });
-        };
+        });
     </script>
-</html>
-</html>
 </body>
 </html>
-</body>
-</html>
-<scurity>
